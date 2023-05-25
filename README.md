@@ -36,8 +36,8 @@ To use or reproduce the results you need to adopt the following steps.
 Clone repository using the following lines in the unix-based bash:
 
 ```bash
-git clone https://github.com/AU-CDS/assignment2-image-classification-jorgenhw.git
-cd assignment2-image-classification-jorgenhw
+git clone https://github.com/jorgenhw/assignment2-image-classification-JHW.git
+cd assignment2-image-classification-JHW
 ```
 
 ### Run ```setup.sh```
