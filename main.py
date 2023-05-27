@@ -21,7 +21,8 @@ def main(args):
     """
     # Doing logistic regression for classification on the image data
     print("LOGISTIC REGRESSION: Training model...")
-    y_pred = log_reg.classification_rog_reg(X_train_dataset, y_train, X_test_dataset)
+    y_pred = log_reg.classification_rog_reg(X_train_dataset, y_train, X_test_dataset, 
+                                            tol=args.tol, verbose=args.verbose, solver=args.solver, multi_class=args.multi_class)
 
     # Saving classification report in folder 'out'
     print("LOGISTIC REGRESSION: Saving classification report...")
@@ -32,11 +33,13 @@ def main(args):
     """
     # Running data through a neural network to classify images
     print("NEURAL NETWORK: Training model...")
-    y_pred = nn.train_model(X_train_dataset, y_train, X_test_dataset)
+    y_pred = nn.train_model(X_train_dataset, y_train, X_test_dataset, hidden_layer_sizes=args.hidden_layer_sizes, learning_rate=args.learning_rate, early_stopping=args.early_stopping, nn_verbose=args.nn_verbose, max_iter=args.max_iter)
 
     # Saving classification report in folder 'out'
     print("NEURAL NETWORK: Saving classification report...")
     nn.nn_classification_report (y_test, y_pred, labels)
+
+    print("[MESSAGE] Script finished successfully!")
 
 # Parse arguments
 if __name__ == "__main__":
@@ -54,4 +57,3 @@ if __name__ == "__main__":
     parser.add_argument('--max_iter', type=int, default=20, help='specify the maximum number of iterations, default is 20')
     args = parser.parse_args()
     main(args)
-
